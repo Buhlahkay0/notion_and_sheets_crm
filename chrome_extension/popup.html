@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Fill Email</title>
+    <style>
+        body {
+            width: 300px;
+            padding: 10px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            resize: vertical;
+        }
+
+
+        #email-format-options label {
+            display: flex;
+            align-items: center;
+            margin: 4px 0;
+            background-color: lightblue;
+            padding: 5px;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        #email-format-options input[type="radio"] {
+            margin-right: 10px;
+            width: auto; /* Ensure the radio button does not expand unnecessarily */
+            flex-shrink: 0;
+        }
+
+        #email-format-options span {
+            flex-grow: 1;
+        }
+
+        .copy-button {
+            margin-left: 10px;
+            flex-shrink: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h2>Fill Email</h2>
+    <input id="website-url" type="text" placeholder="Website URL" />
+    <input id="name" type="text" placeholder="First Last" />
+    <input id="number" type="number" placeholder="Number" />
+    <input id="subject" type="text" placeholder="Subject" />
+    <textarea id="body" placeholder="Email Body"></textarea>
+    <div id="email-format-options">
+        <label>
+            <input type="radio" name="email-format" value="{first}.{last}@url.com" checked> 
+            <span>{first}.{last}@url.com</span>
+            <button class="copy-button" data-format="{first}.{last}@url.com">Copy</button>
+        </label>
+        <label>
+            <input type="radio" name="email-format" value="{first}{last}@url.com"> 
+            <span>{first}{last}@url.com</span>
+            <button class="copy-button" data-format="{first}{last}@url.com">Copy</button>
+        </label>
+        <label>
+            <input type="radio" name="email-format" value="{first}@url.com"> 
+            <span>{first}@url.com</span>
+            <button class="copy-button" data-format="{first}@url.com">Copy</button>
+        </label>
+        <label>
+            <input type="radio" name="email-format" value="{last}@url.com"> 
+            <span>{last}@url.com</span>
+            <button class="copy-button" data-format="{last}@url.com">Copy</button>
+        </label>
+        <label>
+            <input type="radio" name="email-format" value="{first}{last_i}@url.com"> 
+            <span>{first}{last_i}@url.com</span>
+            <button class="copy-button" data-format="{first}{last_i}@url.com">Copy</button>
+        </label>
+        <label>
+            <input type="radio" name="email-format" value="{first_i}{last}@url.com"> 
+            <span>{first_i}{last}@url.com</span>
+            <button class="copy-button" data-format="{first_i}{last}@url.com">Copy</button>
+        </label>
+    </div>
+    <button id="fill-email">Fill Email</button>
+    <button id="clear-fields">Clear All</button>
+    <button id="copy-emails">Copy All</button>
+    <div id="status"></div>
+    <script src="popup.js"></script>
+</body>
+
+</html>
